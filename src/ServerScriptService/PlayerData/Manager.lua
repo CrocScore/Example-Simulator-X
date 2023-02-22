@@ -24,6 +24,15 @@ local function GetData(player: Player, directory: string) --  Get data from play
   return profile.Data[directory]
 end
 
+local function GetAutoClickMode(player: Player, buttonType: "Fast" | "Regular") --  Get data from player profile
+  local profile = Manager.Profiles[player]
+  if not profile then
+    return
+  end
+  return profile.Data.Auto[buttonType].Active
+end
+
 Remotes.GetData.OnServerInvoke = GetData
+Remotes.GetAutoClickMode.OnServerInvoke = GetAutoClickMode
 
 return Manager
