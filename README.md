@@ -1,7 +1,7 @@
 # Example-Simulator-X
 Project used with Rojo and by following this playlist of Tutorials to get a gist on concepts like Rojo, DataStorage, Trading, and more of the concepts followed in the videos. Playlist here: https://www.youtube.com/playlist?list=PLl1Tso3TyF55UEnXsYkmsamFqKUBdgo1S
 
-Videos Completed:
+Videos Completed: <br />
 1 ██████████ 𝟏𝟎𝟎% <br />
 2 ██████████ 𝟏𝟎𝟎% <br />
 3 ██████████ 𝟏𝟎𝟎% <br />
