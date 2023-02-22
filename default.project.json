@@ -4,11 +4,17 @@
     "$className": "DataModel",
 
     "ReplicatedStorage": {
-      "Common": {
-        "$path": "src/shared"
+      "Remotes": {
+        "$path": "src/shared",
+        "UpdateClicks": {
+          "$className": "RemoteEvents"
+        },
+        "Click": {
+          "$className": "RemoteEvent"
+        }
+        
       }
     },
-
     "ServerScriptService": {
       "PlayerData": {
         "$path": "src/data"
@@ -23,9 +29,7 @@
 
     "StarterPlayer": {
       "StarterPlayerScripts": {
-        "Client": {
-          "$path": "src/client"
-        }
+        "$path": "src/client"
       }
     },
 
