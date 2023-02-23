@@ -7,16 +7,41 @@ local Gui = script.Parent
 local Frame = Gui.Frame
 
 local Clicks = Frame.Clicks.Amount
-local CPS = Frame.Clicks.CPS
+local ClicksPerSecond = Frame.Clicks.CPS
 local BuyClicks = Frame.Clicks.Buy
 local Gems = Frame.Gems.Amount
 
+local ClicksDuringSecound = 0
+local PreviousClicksAmount = 0
+
+local CLICKS_PER_SECOND_STRING_TEMPLATE = "(+AMOUNT/sec)"
+
+local function UpdateClicksPerSecond(amount: number) -- Updates Clicks Per Secound
+	local amountOfClicks = amount - PreviousClicksAmount
+	PreviousClicksAmount = amount
+	if amountOfClicks <= 0 then 
+		return 
+	end
+
+	ClicksDuringSecound += amountOfClicks
+	ClicksPerSecond.Text = CLICKS_PER_SECOND_STRING_TEMPLATE:gsub("AMOUNT", FormatNumber.FormatCompact(ClicksDuringSecound))
+	print(ClicksPerSecond)
+	ClicksPerSecond.Visible = true
+
+	task.delay(1, function()
+		ClicksDuringSecound -= amountOfClicks
+		ClicksPerSecond.Text = CLICKS_PER_SECOND_STRING_TEMPLATE:gsub("AMOUNT", FormatNumber.FormatCompact(ClicksDuringSecound))
+		-- ClicksPerSecond.Visible = ClicksDuringSecound > 0 -- Only show if there are clicks
+	end)
+end
+
 local function UpdateCurrency(currency: "Clicks" | "Gems", amount: number)
-	amount = FormatNumber.FormatCompact(amount)
 	if currency == "Clicks" then
-		Clicks.Text = amount
+		UpdateClicksPerSecond(amount)
+		print(FormatNumber.FormatCompact(amount))
+		Clicks.Text = FormatNumber.FormatCompact(amount)
 	elseif currency == "Gems" then
-		Gems.Text = amount
+		Gems.Text = FormatNumber.FormatCompact(amount)
 	end
 end
 

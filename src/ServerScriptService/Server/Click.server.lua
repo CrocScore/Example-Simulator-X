@@ -19,7 +19,7 @@ local function Click(player: Player)
       table.remove(Cooldown, foundPlayer)
     end
   end)
-  PlayerData.AdjustClicks(player, 100)
+  PlayerData.AdjustClicks(player, 1)
 end
 
 Remotes.Click.OnServerEvent:Connect(Click)

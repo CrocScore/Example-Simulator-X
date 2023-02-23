@@ -1,6 +1,6 @@
 local DEFAULT_AUTO_INFO = {
 	Active = false,
-	Duration = 10,
+	Duration = 0,
 }
 
 local Template = {
