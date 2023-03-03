@@ -1,10 +1,14 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
 
 local FormatNumber = require(ReplicatedStorage.Libs.FormatNumber.Simple)
 local Remotes = ReplicatedStorage.Remotes
 
-local Gui = script.Parent
-local Frame = Gui.Frame
+local Player = Players.LocalPlayer
+local PlayerGui = Player.PlayerGui
+
+local Gui = PlayerGui:WaitForChild("Left")
+local Frame = Gui.Frame.Currency
 
 local Clicks = Frame.Clicks.Amount
 local ClicksPerSecond = Frame.Clicks.CPS
